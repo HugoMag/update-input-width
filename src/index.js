@@ -18,7 +18,8 @@ export function getFontShorthand(element) {
   const isFontDefined = style['font-family'] !== '';
 
   if (!isFontDefined) {
-    return '';
+    // fixing firefox exception
+    return 'Fira Sans';
   }
 
   const fontVariant = allowedVariants.includes(style['font-variant']) ? style['font-variant'] : 'normal';
