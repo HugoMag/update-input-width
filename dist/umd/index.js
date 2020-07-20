@@ -39,12 +39,14 @@ function getFontShorthand(element) {
 
 
 function measureText(text, font) {
-  var canvas = measureText.canvas || (measureText.canvas = document.createElement('canvas'));
+  var canvas = measureText.canvas || (measureText.canvas = window.parent.document.createElement('canvas'));
   var context = canvas.getContext('2d'); // Context type not supported
 
   if (!context) {
     return null;
   }
+
+  context.font = font;
 
   var _context$measureText = context.measureText(text),
       width = _context$measureText.width;

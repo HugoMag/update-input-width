@@ -33,13 +33,15 @@ export function getFontShorthand(element) {
  * @param {String} font Font to use when measuring the text
  */
 export function measureText(text, font) {
-  const canvas = measureText.canvas || (measureText.canvas = document.createElement('canvas'));
+  const canvas = measureText.canvas || (measureText.canvas = window.parent.document.createElement('canvas'));
   const context = canvas.getContext('2d');
 
   // Context type not supported
   if (!context) {
     return null;
   }
+
+  context.font = font;
 
   const { width } = context.measureText(text);
 
