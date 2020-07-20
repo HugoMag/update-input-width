@@ -15,8 +15,7 @@ export function getFontShorthand(element) {
   var isFontDefined = style['font-family'] !== '';
 
   if (!isFontDefined) {
-    // fixing firefox exception
-    return 'Fira Sans';
+    return '';
   }
 
   var fontVariant = allowedVariants.includes(style['font-variant']) ? style['font-variant'] : 'normal';
@@ -36,8 +35,6 @@ export function measureText(text, font) {
   if (!context) {
     return null;
   }
-
-  context.font = font;
 
   var _context$measureText = context.measureText(text),
       width = _context$measureText.width;
